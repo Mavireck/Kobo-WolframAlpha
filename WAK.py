@@ -13,7 +13,7 @@ import KIP
 import osk
 
 def printKeyboard():
-	with open('./sample-keymap-en_us.json') as json_file:
+	with open('../Kobo-Python-OSKandUtils/sample-keymap-en_us.json') as json_file:
 		km = json.load(json_file)
 		vk = osk.virtKeyboard(km, display_width, 1440)
 		# Generate an image of the OSK
