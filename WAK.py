@@ -1,5 +1,4 @@
-import KIP
-import osk
+import sys
 import os
 import json
 from _fbink import ffi, lib as FBInk
@@ -7,6 +6,11 @@ from PIL import Image, ImageDraw, ImageFont
 import requests
 import urllib
 from time import sleep
+# My own librairies (Kobo-Input-Python, Kobo-Python-OSKandUtils)
+sys.path.append('../Kobo-Input-Python')
+sys.path.append('../Kobo-Python-OSKandUtils')
+import KIP
+import osk
 
 def printKeyboard():
 	with open('./sample-keymap-en_us.json') as json_file:
