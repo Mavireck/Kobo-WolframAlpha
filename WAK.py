@@ -78,6 +78,11 @@ upperCase = False
 fbink_cfg = ffi.new("FBInkConfig *")
 fbfd = FBInk.fbink_open()
 FBInk.fbink_init(fbfd, fbink_cfg)
+#Get screen infos
+state = ffi.new("FBInkState *")
+FBInk.fbink_get_state(fbink_cfg, state)
+display_width=state.screen_width
+screenHeight=state.screen_height
 #Clear screen
 FBInk.fbink_cls(fbfd, fbink_cfg)
 
@@ -109,7 +114,7 @@ while True:
 		elif k["keyType"] == osk.KTbackspace:
 			if len(runeStr) > 0:
 				# removing last element and drawing and empty space instead
-				runeStr = runeStr[:-1] 
+				runeStr = runeStr[:-1]
 				FBInk.fbink_print(fbfd, str(runeStr) + " ", fbink_cfg)
 		elif k["keyType"] == osk.KTcapsLock:
 			if upperCase:
